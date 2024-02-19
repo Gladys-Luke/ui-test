@@ -2,108 +2,148 @@ import React from 'react'
 import { format } from 'date-fns'
 import { Link } from 'react-router-dom'
 import { getOrderStatus } from '../lib/helpers'
+import { ImFilter } from 'react-icons/im'
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { FaArrowRotateLeft,  } from 'react-icons/fa6'
 
 const recentOrderData = [
-	{
-		id: '1',
-		product_id: '4324',
-		customer_id: '23143',
-		customer_name: 'Shirley A. Lape',
-		order_date: '2022-05-17T03:24:00',
-		order_total: '$435.50',
-		current_order_status: 'PLACED',
-		shipment_address: 'Cottage Grove, OR 97424'
-	},
-	{
-		id: '7',
-		product_id: '7453',
-		customer_id: '96453',
-		customer_name: 'Ryan Carroll',
-		order_date: '2022-05-14T05:24:00',
-		order_total: '$96.35',
-		current_order_status: 'CONFIRMED',
-		shipment_address: 'Los Angeles, CA 90017'
-	},
-	{
-		id: '2',
-		product_id: '5434',
-		customer_id: '65345',
-		customer_name: 'Mason Nash',
-		order_date: '2022-05-17T07:14:00',
-		order_total: '$836.44',
-		current_order_status: 'SHIPPED',
-		shipment_address: 'Westminster, CA 92683'
-	},
-	{
-		id: '3',
-		product_id: '9854',
-		customer_id: '87832',
-		customer_name: 'Luke Parkin',
-		order_date: '2022-05-16T12:40:00',
-		order_total: '$334.50',
-		current_order_status: 'SHIPPED',
-		shipment_address: 'San Mateo, CA 94403'
-	},
-	{
-		id: '4',
-		product_id: '8763',
-		customer_id: '09832',
-		customer_name: 'Anthony Fry',
-		order_date: '2022-05-14T03:24:00',
-		order_total: '$876.00',
-		current_order_status: 'OUT_FOR_DELIVERY',
-		shipment_address: 'San Mateo, CA 94403'
-	},
-	{
-		id: '5',
-		product_id: '5627',
-		customer_id: '97632',
-		customer_name: 'Ryan Carroll',
-		order_date: '2022-05-14T05:24:00',
-		order_total: '$96.35',
-		current_order_status: 'DELIVERED',
-		shipment_address: 'Los Angeles, CA 90017'
-	}
+    {
+        id: '00001',
+        program: 'Children Training',
+        customer_id: '23143',
+        location: '089 Kutch Green Apt. 448',
+        date: '14 Feb 2019',
+        type: 'Training',
+        current_order_status: 'COMPLETED'
+    },
+    {
+        id: '00002',
+        program: 'Children Training',
+        customer_id: '96453',
+        location: '979 Immanuel Ferry Suite 526',
+        date: '14 Feb 2019',
+        type: 'Outreach',
+        current_order_status: 'PROCESSING'
+    },
+    {
+        id: '00003',
+        program: 'Children Training',
+        customer_id: '65345',
+        location: '8587 Frida ports',
+        date: '14 Feb 2019',
+        type: 'Capacity Dev',
+        current_order_status: 'REJECTED'
+    },
+    {
+        id: '00004',
+        program: 'Children Training',
+        customer_id: '87832',
+        location: '768 Destiny Lake Suite 600',
+        date: '14 Feb 2019',
+        type: 'Outreach',
+        current_order_status: 'COMPLETED'
+    },
+    {
+        id: '00005',
+        program: 'Children Training',
+        customer_id: '09832',
+        location: '042 Mylene Throughway',
+        date: '14 Feb 2019',
+        type: 'Outreach',
+        current_order_status: 'PROCESSING'
+    },
+    {
+        id: '00006',
+        program: 'Children Training',
+        customer_id: '97632',
+        location: '543 Weimann Mountain',
+        date: '14 Feb 2019',
+        type: 'Capacity Dev',
+        current_order_status: 'COMPLETED'
+    }
 ]
 
 export default function RecentOrders() {
-	return (
-		<div className="bg-white px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
-			<strong className="text-gray-700 font-medium">Recent Orders</strong>
-			<div className="border-x border-gray-200 rounded-sm mt-3">
-				<table className="w-full text-gray-700">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Product ID</th>
-							<th>Customer Name</th>
-							<th>Order Date</th>
-							<th>Order Total</th>
-							<th>Shipping Address</th>
-							<th>Order Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						{recentOrderData.map((order) => (
-							<tr key={order.id}>
-								<td>
-									<Link to={`/order/${order.id}`}>#{order.id}</Link>
-								</td>
-								<td>
-									<Link to={`/product/${order.product_id}`}>#{order.product_id}</Link>
-								</td>
-								<td>
-									<Link to={`/customer/${order.customer_id}`}>{order.customer_name}</Link>
-								</td>
-								<td>{format(new Date(order.order_date), 'dd MMM yyyy')}</td>
-								<td>{order.order_total}</td>
-								<td>{order.shipment_address}</td>
-								<td>{getOrderStatus(order.current_order_status)}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</div>
-	)
+    return (
+        <div className="flex flex-col flex-1">
+            <div className="mt-2 mb-6">
+                <span className="text-[28px] font-semibold">Program Insight</span>
+            </div>
+            <div className="bg-neutral-50  rounded-xl  w-[75%] mb-6">
+                <table className="w-full text-gray-700 border-collapse table-auto">
+                    <tbody>
+                        <tr>
+                            <td className="py-3 px-4 border text-[22px] font-bold">
+                                <ImFilter />
+                            </td>
+                            <td className="py-3 px-4 border text-[13px] font-bold">Filter By</td>
+                            <td className="py-3 px-4 border">
+                                <select className="block w-full py-2 text-[13px] font-bold px-3 bg-transparent rounded-md shadow-sm focus:outline-none ">
+                                    <option>14 Feb 2019</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </td>
+                            <td className="py-3 px-4 border">
+                                <select className="block w-full py-2 text-[13px] font-bold px-3 bg-transparent rounded-md shadow-sm focus:outline-none ">
+                                    <option>Program</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </td>
+                            <td className="py-3 px-4 border">
+                                <select className="block w-full py-2 text-[13px] font-bold px-3 bg-transparent rounded-md shadow-sm focus:outline-none ">
+                                    <option>Location</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </td>
+                            <td className="py-3 px-4 border  text-rose-600">
+                                <div className="flex items-center gap-2">
+                                    <FaArrowRotateLeft />
+                                    Reset Filter
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div className="bg-white pb-4 rounded-xl border  flex-1">
+                <table className="w-full text-gray-700 ">
+                    <thead className="bg-white">
+                        <tr>
+                            <th className="pl-6">ID</th>
+                            <th className="pl-6">PROGRAM</th>
+                            <th className="pl-6">LOCATION</th>
+                            <th className="pl-6">DATE</th>
+                            <th className="pl-6">TYPE</th>
+                            <th className="pl-6">STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody className="font-semibold text-[12px]">
+                        {recentOrderData.map((order) => (
+                            <tr key={order.id}>
+                                <td className="py-5 text-[13px] pl-6">{order.id}</td>
+                                <td className="py-5 text-[13px] pl-6">{order.program}</td>
+                                <td className="py-5 text-[13px] pl-6">{order.location}</td>
+                                <td className="py-5 text-[13px] pl-6">{order.date}</td>
+                                <td className="py-5 text-[13px] pl-6">{order.type}</td>
+                                <td className="py-5 text-[13px] pl-6">{getOrderStatus(order.current_order_status)}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div className="flex justify-between mt-4">
+                <button className="flex items-center gap-1 px-2 py-1 bg-white text-gray-500 text-[13px] border border-gray-300  rounded-md">
+                    <IoIosArrowBack />
+                    Prev. Date
+                </button>
+                <button className="flex items-center gap-1 px-2 py-1 bg-white text-gray-500 text-[13px] border border-gray-300   rounded-md">
+                    Next Date
+                    <IoIosArrowForward />
+                </button>
+            </div>
+        </div>
+    )
 }

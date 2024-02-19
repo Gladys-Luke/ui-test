@@ -1,20 +1,20 @@
 export function getOrderStatus(status) {
 	switch (status) {
-		case 'PLACED':
+		case 'COMPLETED':
 			return (
-				<span className="capitalize py-1 px-2 rounded-md text-xs text-sky-600 bg-sky-100">
+				<span className="capitalize py-1 px-2 rounded-md font-medium text-xs text-teal-500 bg-teal-100">
 					{status.replaceAll('_', ' ').toLowerCase()}
 				</span>
 			)
-		case 'CONFIRMED':
+		case 'PROCESSING':
 			return (
-				<span className="capitalize py-1 px-2 rounded-md text-xs text-orange-600 bg-orange-100">
+				<span className="capitalize py-1 px-2 rounded-md font-medium text-xs text-purple-800 bg-purple-200">
 					{status.replaceAll('_', ' ').toLowerCase()}
 				</span>
 			)
-		case 'SHIPPED':
+		case 'REJECTED':
 			return (
-				<span className="capitalize py-1 px-2 rounded-md text-xs text-teal-600 bg-teal-100">
+				<span className="capitalize py-1 px-2 rounded-md font-medium text-xs text-orange-600 bg-pink-200">
 					{status.replaceAll('_', ' ').toLowerCase()}
 				</span>
 			)

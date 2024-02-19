@@ -8,44 +8,70 @@ import {
 	HiOutlineQuestionMarkCircle,
 	HiOutlineCog
 } from 'react-icons/hi'
+import { FiHome } from "react-icons/fi";
+import { FaRegFileAlt } from "react-icons/fa";
+import { LuCalendar } from "react-icons/lu";
+import { HiOutlineCircleStack } from "react-icons/hi2";
+import { PiChartBar } from "react-icons/pi";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { IoSettingsOutline } from "react-icons/io5";
+
 
 export const DASHBOARD_SIDEBAR_LINKS = [
 	{
 		key: 'dashboard',
 		label: 'Dashboard',
 		path: '/',
-		icon: <HiOutlineViewGrid />
+		icon: <FiHome />
 	},
 	{
 		key: 'products',
-		label: 'Products',
+		label: 'File Management',
 		path: '/products',
-		icon: <HiOutlineCube />
+		icon: <FaRegFileAlt />
 	},
 	{
 		key: 'orders',
-		label: 'Orders',
+		label: 'Capacity Building',
 		path: '/orders',
-		icon: <HiOutlineShoppingCart />
+		icon: <LuCalendar />
 	},
 	{
 		key: 'customers',
-		label: 'Customers',
+		label: 'Data Repository',
 		path: '/customers',
-		icon: <HiOutlineUsers />
+		icon: <HiOutlineCircleStack />
 	},
 	{
 		key: 'transactions',
-		label: 'Transactions',
+		label: 'Trainings',
 		path: '/transactions',
-		icon: <HiOutlineDocumentText />
+		icon: <HiOutlineCircleStack />
 	},
 	{
-		key: 'messages',
-		label: 'Messages',
-		path: '/messages',
-		icon: <HiOutlineAnnotation />
-	}
+        key: 'messages',
+        label: 'Reports & Insights',
+        path: '/messages',
+        icon: <PiChartBar />,
+        dropdownOptions: [
+            {
+                key: 'option1',
+                label: 'Option 1',
+                path: '/reports/option1'
+            },
+            {
+                key: 'option2',
+                label: 'Option 2',
+                path: '/reports/option2'
+            },
+            {
+                key: 'option3',
+                label: 'Option 3',
+                path: '/reports/option3'
+            }
+        ]
+    },
+	
 ]
 
 export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
